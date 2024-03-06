@@ -1,0 +1,20 @@
+{
+  "=======================VALIDATE_MESSAGES=======================": "validate message",
+  "required": "This field is required",
+  "invalid-number": "This field must be a numeric value",
+  "less-or-equal": "This field must be less than or equal to",
+  "larger-or-equal": "This field must be larger than or equal to",
+  "trim": "This field must be a trimmed string",
+  "one-decimal": "Must have exactly one decimal place after the decimal point",
+  "date-format": "The date format is not correct",
+  "special-characters": "Do not enter special characters",
+  "number": "Please enter a valid number.",
+  "max-length": "Please enter less than 5000 characters",
+  "special-characters-parter-name": "Partner name does not contain special characters",
+  "special-characters-supplier-name": "Supplier name does not contain special characters",
+  "no-number": "Do not enter numeric characters",
+  "invalid-email": "Invalid email address (Eg: abc@gmail.com)",
+  "invalid-password-min": "Password must be at least 8 characters",
+  "invalid-password-max": "Password must be at most 24 characters",
+  "invalid-password-special": "Password contains at least one uppercase letter, one lowercase letter, one number and one special character"
+}

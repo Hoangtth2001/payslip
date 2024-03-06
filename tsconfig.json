@@ -1,0 +1,10 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "module": "esnext",
+    "typeRoots": ["./types"],
+    "baseUrl": "./src"
+  },
+  "include": ["**/*.ts", "**/*.tsx"]
+}

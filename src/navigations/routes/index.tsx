@@ -2,11 +2,11 @@ import React, { useEffect } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { BackHandler } from 'react-native';
 
+import HomeTab from 'navigations/routes/Hometab';
 import { RouterPathValue } from 'types/router';
 import { goBack } from 'utils/navigation';
 import { PATH } from 'configs/routerPath';
 import { Login } from 'screens/Login';
-import { Home } from 'screens/Home';
 
 type RoutesProps = {
   initialRoute: {
@@ -34,7 +34,14 @@ export const Routes: React.FC<RoutesProps> = ({ initialRoute }) => {
           headerShown: false,
         }}
       />
-      <Stack.Screen name={PATH.HOME} component={Home} />
+
+      <Stack.Screen
+        name={PATH.HOMETAB}
+        component={HomeTab}
+        options={{
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useFonts, Montserrat_500Medium } from '@expo-google-fonts/montserrat';
 import { useIntl, FormattedMessage } from 'react-intl';
 import { Text, TextProps } from '@rneui/themed';
 import omit from 'lodash/omit';
@@ -10,6 +11,10 @@ interface IProps extends TextProps {
 }
 
 export const AppText: React.FC<IProps> = ({ id, children, ...props }) => {
+  const [fontsLoaded] = useFonts({
+    Montserrat_500Medium,
+  });
+
   const styles = useStyles();
 
   const intl = useIntl();
@@ -17,7 +22,11 @@ export const AppText: React.FC<IProps> = ({ id, children, ...props }) => {
   const isMessageIdDefined = Object.prototype.hasOwnProperty.call(intl.messages, id as PropertyKey);
 
   return (
-    <Text allowFontScaling={false} style={[styles.text, props.style]} {...omit(props, 'style')}>
+    <Text
+      allowFontScaling={false}
+      style={[{ ...styles.text, ...(fontsLoaded && { fontFamily: 'Montserrat_500Medium' }) }, props.style]}
+      {...omit(props, 'style')}
+    >
       {isMessageIdDefined ? <FormattedMessage id={id} /> : children}
     </Text>
   );

@@ -10,8 +10,8 @@ import { loginSchema } from 'libs/yup/auth.schema';
 import { login } from 'redux/thunk/auth.thunk';
 import Input from 'components/Form/Input';
 import { LoginRequest } from 'types/auth';
-import { reset } from 'utils/navigation';
 import { PATH } from 'configs/routerPath';
+import { reset } from 'utils/navigation';
 import { useStyles } from './styles';
 
 export const Login: React.FC = () => {
@@ -32,7 +32,7 @@ export const Login: React.FC = () => {
   const onSubmit = async (data: LoginRequest) => {
     const resultAction = await dispatch(login(data));
     if (login.fulfilled.match(resultAction)) {
-      reset(PATH.HOME);
+      reset(PATH.HOMETAB);
     }
   };
 

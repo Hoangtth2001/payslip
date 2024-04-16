@@ -17,7 +17,7 @@ export const useRoute = (): RouteResponse => {
 
   const initialRoute = useMemo(() => {
     if (isAuth) {
-      return { stackName: PATH.HOME, routeName: PATH.HOME };
+      return { stackName: PATH.HOMETAB, routeName: PATH.HOMETAB };
     }
     return { stackName: PATH.LOGIN, routeName: PATH.LOGIN };
   }, [isAuth]);

@@ -3,23 +3,23 @@ export type RouterPathKey =
   | 'REGISTER'
   | 'HOME'
   | 'HOMETAB'
-  | 'FAVOURITE'
-  | 'ACTIVITIES'
   | 'ACCOUNT'
   | 'NOTIFICATION'
-  | 'MYFIELDS'
-  | 'ADDFIELDSGROUP';
+  | 'ADDSTAFF'
+  | 'PAYSLIP'
+  | 'LEAVE'
+  | 'VIEWLEAVE';
 
 export type RouterPathValue =
   | 'Login'
   | 'Register'
   | 'Home'
   | 'HomeTab'
-  | 'Favourite'
-  | 'Activities'
   | 'Account'
   | 'Notification'
-  | 'MyFields'
-  | 'AddFieldsGroup';
+  | 'AddStaff'
+  | 'payslip'
+  | 'leave'
+  | 'viewLeave';
 
 export type RouterPath = { [key in RouterPathKey]: RouterPathValue };

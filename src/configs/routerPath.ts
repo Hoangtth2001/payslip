@@ -6,9 +6,9 @@ export const PATH: RouterPath = {
   HOME: 'Home',
   NOTIFICATION: 'Notification',
   HOMETAB: 'HomeTab',
-  FAVOURITE: 'Favourite',
   ACCOUNT: 'Account',
-  ACTIVITIES: 'Activities',
-  MYFIELDS: 'MyFields',
-  ADDFIELDSGROUP: 'AddFieldsGroup',
+  ADDSTAFF: 'AddStaff',
+  PAYSLIP: 'payslip',
+  LEAVE: 'leave',
+  VIEWLEAVE: "viewLeave"
 };

@@ -12,6 +12,8 @@ import { useStyles } from './styles';
 import { Home } from 'screens/Home';
 import { View } from 'react-native';
 import { Appicons } from 'assets';
+import { useAppSelector } from 'hooks';
+import { authSelector } from 'redux/slice/auth.slice';
 
 const { AccountActiveIcon, AccountIcon, HomeActiveIcon, HomeIcon } = Appicons;
 
@@ -21,6 +23,8 @@ const HomeTab: React.FC = () => {
   const styles = useStyles();
 
   const { theme } = useTheme();
+
+  const { user } = useAppSelector(authSelector);
 
   return (
     <Tab.Navigator
@@ -32,31 +36,21 @@ const HomeTab: React.FC = () => {
     >
       <Tab.Screen
         name={PATH.HOME}
-        component={Home}
-        options={{
-          tabBarLabel: ({ focused, color }) => (
-            <AppText style={{ color: focused ? appColors.main : theme.colors.divider, fontSize: 12 }}>
-              Trang chủ
-            </AppText>
-          ),
-          tabBarIcon: ({ focused, color, size }) => (
-            <View style={styles.activeTabBar}>{focused ? <HomeActiveIcon /> : <HomeIcon />}</View>
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name={PATH.FAVOURITE}
         component={Favourite}
         options={{
           tabBarLabel: ({ focused, color }) => (
             <AppText style={{ color: focused ? appColors.main : theme.colors.divider, fontSize: 12 }}>
-              Yêu thích
+              Bảng lương
             </AppText>
           ),
           tabBarIcon: ({ focused }) => (
             <View style={styles.activeTabBar}>
-              <Icon type="fontisto" name="heart-alt" color={focused ? appColors.main : appColors.DarkGrey} size={25} />
+              <Icon
+                type="font-awesome-5"
+                name="money-check"
+                color={focused ? appColors.main : appColors.DarkGrey}
+                size={25}
+              />
             </View>
           ),
         }}
@@ -67,36 +61,33 @@ const HomeTab: React.FC = () => {
         options={{
           tabBarLabel: ({ focused, color }) => (
             <AppText style={{ color: focused ? appColors.main : theme.colors.divider, fontSize: 12 }}>
-              Thông báo
+              Xin nghỉ phép
             </AppText>
           ),
           tabBarIcon: ({ focused, color, size }) => (
             <View style={styles.activeTabBar}>
-              <Icon
-                type="ionicon"
-                name="notifications-outline"
-                color={focused ? appColors.main : appColors.DarkGrey}
-                size={30}
-              />
+              <Icon type="entypo" name="log-out" color={focused ? appColors.main : appColors.DarkGrey} size={30} />
             </View>
           ),
         }}
       />
-      <Tab.Screen
-        name={PATH.ACCOUNT}
-        component={UserAccount}
-        options={{
-          tabBarLabel: ({ focused, color }) => (
-            <AppText style={{ color: focused ? appColors.main : theme.colors.divider, fontSize: 12 }}>
-              Tài khoản
-            </AppText>
-          ),
+      {user?.role === 'admin' && (
+        <Tab.Screen
+          name={PATH.ACCOUNT}
+          component={UserAccount}
+          options={{
+            tabBarLabel: ({ focused, color }) => (
+              <AppText style={{ color: focused ? appColors.main : theme.colors.divider, fontSize: 12 }}>
+                Nhân sự
+              </AppText>
+            ),
 
-          tabBarIcon: ({ focused, color, size }) => (
-            <View style={styles.activeTabBar}>{focused ? <AccountActiveIcon /> : <AccountIcon />}</View>
-          ),
-        }}
-      />
+            tabBarIcon: ({ focused, color, size }) => (
+              <View style={styles.activeTabBar}>{focused ? <AccountActiveIcon /> : <AccountIcon />}</View>
+            ),
+          }}
+        />
+      )}
     </Tab.Navigator>
   );
 };

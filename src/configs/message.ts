@@ -20,4 +20,5 @@ export const VALIDATE_MESSAGES = {
   FORMAT_PHONE_NUMBER: 'phone-number-format',
   INVALID_PASSWORD_MIN: 'invalid-password-min',
   INVALID_PASSWORD_MAX: 'invalid-password-max',
+  PASSWORDS_DO_NOT_MATCH : "password-do-not-match"
 };

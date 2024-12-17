@@ -16,5 +16,7 @@
   "invalid-email": "Invalid email address (Eg: abc@gmail.com)",
   "invalid-password-min": "Password must be at least 8 characters",
   "invalid-password-max": "Password must be at most 24 characters",
+  "error-password-or-usename" : "error password or usename",
+  "password-do-not-match": "password-do-not-match",
   "invalid-password-special": "Password contains at least one uppercase letter, one lowercase letter, one number and one special character"
 }
